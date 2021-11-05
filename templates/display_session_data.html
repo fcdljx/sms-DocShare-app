@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script>
+	//this is super important -- lets us access all the json items in javascript
+	var items = {{items|tojson}}
+	var session_id = {{session_id|tojson}}
+	</script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- <link rel = "stylesheet" href="/static/styles/main.css" /> -->
+	<script src = "/static/display_session_data.js"></script>
+	<title>SMS App</title>
+</head>
+
+<body>
+  <div class = "container">
+    <div class = "col-12 text-center">
+      Dashboard for single user
+    </div>
+		<br>
+
+  <!-- Header -->
+  <div class = "row text-center">
+    <div class = "col-12">
+      Session Number
+    </div>
+  </div>
+
+	<div id = "session-number" class = "text-center">
+	</div>
+
+	<br>
+
+	<div class = "row text-center">
+		<div class = "col-6">
+			User Response
+		</div>
+
+		<div class = "col-6">
+			Question ID
+		</div>
+	</div>
+
+		<div id = "overall-data" class = "text-center">
+		</div>
+
+  </div>
+</body>
+</html>

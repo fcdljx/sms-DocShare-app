@@ -1,9 +1,13 @@
 import random
-from flask import Flask, request, session
+from flask import Flask, request, session, Response,jsonify
+from flask import render_template
 from smsService import send_message
 from twilio.twiml.messaging_response import MessagingResponse
 from prompts import prompts
 from DBService import get_all, create_new
+
+import json
+import time
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -41,8 +45,9 @@ def sms_reply():
         if sender_number in session.keys():
             send_message(resp, request, get_all(str(session[sender_number])), session)
         else:
-            pass
-    #         TODO: send error
+            # Todo: send error
+            send_message(resp, request, prompts['JoinNotice'], session)
+
     elif command == 'ADD':
         if sender_number in session.keys():
             res = create_new(str(session[sender_number]), messageID, sender_number, content)
